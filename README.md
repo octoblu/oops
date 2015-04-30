@@ -9,5 +9,5 @@ Install
 On OSX, run
 
 ```bash
-ln -s `pwd`/oops.sh /usr/local/bin/oops
+./install-osx.sh
 ```
