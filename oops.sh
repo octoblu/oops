@@ -51,6 +51,7 @@ echo -e "
   Commands:
 
     deploy       Deploy a specific version
+    list         Show available versions to deploy to
     rollback     Swap ELB back to the off cluster
 
   Options:
