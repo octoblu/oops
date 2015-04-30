@@ -45,7 +45,13 @@ if [ "$1" == "rollback" ]; then
 fi
 
 echo -e "
-  Usage: oops [command]
+  Usage: oops [command] [options]
+
+
+  Commands:
+
+    deploy       Deploy a specific version
+    rollback     Swap ELB back to the off cluster
 
   Options:
 
