@@ -1,4 +1,20 @@
 #!/bin/bash
+
+
+if [ "$1" == "--help" ] ||
+   [ "$1" == "-h" ]; then
+  echo -e "
+  Usage: oops-rollback [options]
+
+
+  Options:
+
+    -h, --help    output usage information
+    -c, --current list current color/port and exit \n\n"
+  exit 1
+fi
+
+
 echo "Identifying active cluster..."
 ELB_NAME=`jq --raw-output '."elb-name"' .oopsrc`
 BLUE_PORT=`aws elb describe-tags --load-balancer-name ${ELB_NAME} | jq '.TagDescriptions[0].Tags[] | select(.Key == "blue") | .Value | tonumber'`
@@ -13,6 +29,13 @@ if [ "${OLD_PORT}" == "${BLUE_PORT}" ]; then
   OLD_COLOR=blue
   NEW_COLOR=green
   NEW_PORT=${GREEN_PORT}
+fi
+
+if [ "$1" == "--current" ] ||
+   [ "$1" == "-c" ]; then
+
+  echo "Active color: '${OLD_COLOR}', port: '${OLD_PORT}'"
+  exit 1
 fi
 
 echo "Active cluster: '${OLD_COLOR}'. Rolling back..."
