@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GIT_COMMIT=$1
-echo "Rolling back to ${GIT_COMMIT}"
+echo "Deploying ${GIT_COMMIT}"
 
 DEPLOY_REGION=us-west-2
 APPLICATION_NAME=`jq --raw-output '."application-name"' .oopsrc`
