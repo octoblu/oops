@@ -23,9 +23,11 @@ DIR="`dirname \"$0\"`" # relative
 DIR="`( cd \"$MY_PATH\" && pwd )`" # absolute
 echo ln -nsf $DIR/oops.sh /usr/local/bin/oops
 echo ln -nsf $DIR/oops-deploy.sh /usr/local/bin/oops-deploy
+echo ln -nsf $DIR/oops-list.sh /usr/local/bin/oops-list
 echo ln -nsf $DIR/oops-rollback.sh /usr/local/bin/oops-rollback
 ln -nsf $DIR/oops.sh /usr/local/bin/oops
 ln -nsf $DIR/oops-deploy.sh /usr/local/bin/oops-deploy
+ln -nsf $DIR/oops-list.sh /usr/local/bin/oops-list
 ln -nsf $DIR/oops-rollback.sh /usr/local/bin/oops-rollback
 
 echo -e "\n All done."
