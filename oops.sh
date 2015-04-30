@@ -29,24 +29,23 @@ if [ "$?" != "0" ]; then
   exit $?
 fi
 
-if [ "$1" == "rollback" ]; then
-  oops-rollback
+if [ "$1" == "deploy" ]; then
+  oops-deploy ${*:2}
   exit $?
 fi
 
-if [ "$1" == "deploy" ]; then
-  oops-deploy $2
+if [ "$1" == "list" ]; then
+  oops-list ${*:2}
+  exit $?
+fi
+
+if [ "$1" == "rollback" ]; then
+  oops-rollback ${*:2}
   exit $?
 fi
 
 echo -e "
   Usage: oops [command]
-
-
-  Commands:
-
-    deploy       Deploy a specific version
-    rollback     Swap ELB back to the off cluster
 
   Options:
 
