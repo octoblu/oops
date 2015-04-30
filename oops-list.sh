@@ -7,5 +7,5 @@ DEPLOY_KEY="${APPLICATION_NAME}/${APPLICATION_NAME}-${GIT_COMMIT}.zip"
 
 echo -e "\nAvailable versions:\n"
 
-aws s3 ls "s3://${DEPLOY_BUCKET}/${APPLICATION_NAME}" --recursive |
+aws s3 ls "s3://${DEPLOY_BUCKET}/${APPLICATION_NAME}/" --recursive |
   sort --reverse
