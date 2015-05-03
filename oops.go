@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/codegangsta/cli"
+	"github.com/octoblu/oops/commands"
 )
 
 func main() {
@@ -18,9 +19,7 @@ func main() {
 			Name:    "list",
 			Aliases: []string{"l"},
 			Usage:   "List available deploys to rollback to.",
-			Action: func(c *cli.Context) {
-				println("list")
-			},
+			Action:  commands.List,
 		},
 	}
 
