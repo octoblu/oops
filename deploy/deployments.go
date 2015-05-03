@@ -2,7 +2,6 @@ package deploy
 
 import (
 	"errors"
-	"fmt"
 	"sort"
 
 	"github.com/mitchellh/goamz/aws"
@@ -59,7 +58,6 @@ func GetDeployments(bucketName, applicationName string) ([]string, error) {
 		return deployments, err
 	}
 
-	fmt.Printf("resp.Contents: %d", len(resp.Contents))
 	keys := resp.Contents
 	sort.Sort(byLastModified(keys))
 

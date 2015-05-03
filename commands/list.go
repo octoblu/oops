@@ -23,6 +23,7 @@ func List(c *cli.Context) {
 	deployments, err := deploy.GetDeployments(config.S3Bucket, config.ApplicationName)
 	check(err)
 
+	fmt.Print("Last Modified              Deployment\n\n")
 	for _, deployment := range deployments {
 		fmt.Println(deployment)
 	}
