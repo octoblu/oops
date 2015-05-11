@@ -39,6 +39,11 @@ if [ "$1" == "list" ]; then
   exit $?
 fi
 
+if [ "$1" == "off" ]; then
+  oops-off ${*:2}
+  exit $?
+fi
+
 if [ "$1" == "rollback" ]; then
   oops-rollback ${*:2}
   exit $?
@@ -57,7 +62,9 @@ echo -e "
 
     deploy       Deploy a specific version
     list         Show available versions to deploy to
+    off          Map current off cluster to off.octoblu.com
     rollback     Swap ELB back to the off cluster
+    status       Show colors and ports
 
   Options:
 

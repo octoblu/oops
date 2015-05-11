@@ -28,5 +28,5 @@ if [ "${OLD_PORT}" == "${BLUE_PORT}" ]; then
   NEW_PORT=${GREEN_PORT}
 fi
 
-echo "{\"active\": {\"color\": \"${OLD_COLOR}\", \"port\": \"${OLD_PORT}\"}, \"off\": {\"color\": \"${NEW_COLOR}\", \"port\": \"${NEW_PORT}\"}}\n"
+echo "{\"active\": {\"color\": \"${OLD_COLOR}\", \"port\": \"${OLD_PORT}\"}, \"off\": {\"color\": \"${NEW_COLOR}\", \"port\": \"${NEW_PORT}\"}}"
 exit 0
