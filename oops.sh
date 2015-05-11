@@ -44,6 +44,11 @@ if [ "$1" == "rollback" ]; then
   exit $?
 fi
 
+if [ "$1" == "status" ]; then
+  oops-status ${*:2}
+  exit $?
+fi
+
 echo -e "
   Usage: oops [command] [options]
 

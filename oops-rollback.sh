@@ -35,6 +35,7 @@ if [ "$1" == "--current" ] ||
    [ "$1" == "-c" ]; then
 
   echo "Active color: '${OLD_COLOR}', port: '${OLD_PORT}'"
+  echo "Off color: '${NEW_COLOR}', port: '${NEW_PORT}'"
   exit 1
 fi
 
