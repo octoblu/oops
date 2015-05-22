@@ -15,11 +15,12 @@ fi
 
 
 echo "Identifying off cluster..."
-ELB_NAME=`jq --raw-output '."elb-name"' .oopsrc`
-BLUE_PORT=`aws elb describe-tags --load-balancer-name ${ELB_NAME} | jq '.TagDescriptions[0].Tags[] | select(.Key == "blue") | .Value | tonumber'`
-GREEN_PORT=`aws elb describe-tags --load-balancer-name ${ELB_NAME} | jq '.TagDescriptions[0].Tags[] | select(.Key == "green") | .Value | tonumber'`
+ELB_NAME='app-off-octoblu-com'
+TARGET_ELB_NAME=`jq --raw-output '."elb-name"' .oopsrc`
+BLUE_PORT=`aws elb describe-tags --load-balancer-name ${TARGET_ELB_NAME} | jq '.TagDescriptions[0].Tags[] | select(.Key == "blue") | .Value | tonumber'`
+GREEN_PORT=`aws elb describe-tags --load-balancer-name ${TARGET_ELB_NAME} | jq '.TagDescriptions[0].Tags[] | select(.Key == "green") | .Value | tonumber'`
 
-OLD_PORT=`AWS_DEFAULT_REGION=us-west-2 aws elb describe-load-balancers --load-balancer-name ${ELB_NAME} | jq '.LoadBalancerDescriptions[0].ListenerDescriptions[0].Listener.InstancePort'`
+OLD_PORT=`AWS_DEFAULT_REGION=us-west-2 aws elb describe-load-balancers --load-balancer-name ${TARGET_ELB_NAME} | jq '.LoadBalancerDescriptions[0].ListenerDescriptions[0].Listener.InstancePort'`
 
 OLD_COLOR=green
 NEW_COLOR=blue
