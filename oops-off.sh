@@ -15,7 +15,7 @@ fi
 
 
 echo "Identifying off cluster..."
-ELB_NAME='app-off-octoblu-com'
+ELB_NAME=`jq --raw-output '."elb-name"' .oopsrc`
 BLUE_PORT=`aws elb describe-tags --load-balancer-name ${ELB_NAME} | jq '.TagDescriptions[0].Tags[] | select(.Key == "blue") | .Value | tonumber'`
 GREEN_PORT=`aws elb describe-tags --load-balancer-name ${ELB_NAME} | jq '.TagDescriptions[0].Tags[] | select(.Key == "green") | .Value | tonumber'`
 
