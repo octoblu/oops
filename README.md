@@ -1,13 +1,17 @@
 oops
 ====
 
-Instant rollbacks using AWS
+Instant rollbacks using deployinator
 
-Install
--------
+## Install
+```shell
+npm install -g deployinate-oops
+```
 
-On OSX, run
-
-```bash
-./install-osx.sh
+## Usage
+```shell
+oops rollback
+oops list
+oops status
+oops deploy <version>
 ```
